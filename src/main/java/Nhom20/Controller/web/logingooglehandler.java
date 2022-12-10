@@ -1,6 +1,8 @@
-package test;
+package Nhom20.Controller.web;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +13,9 @@ import org.apache.http.client.fluent.Request;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+
+import Nhom20.Model.Constants;
+import Nhom20.Model.usergoogleDTO;
 
 import org.apache.http.client.fluent.Form;
 
@@ -28,12 +33,13 @@ public class logingooglehandler extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+	protected usergoogleDTO processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String code = request.getParameter("code");
 		String accessToken = getToken(code);
 		usergoogleDTO user = getUserInfo(accessToken);
-		System.out.println(user);
+		return user;
+		
 	}
 
 	public static String getToken(String code) throws ClientProtocolException, IOException {
@@ -66,7 +72,12 @@ public class logingooglehandler extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		processRequest(request, response);
+		usergoogleDTO user = processRequest(request, response);
+		RequestDispatcher rd = null;
+		//request.setCharacterEncoding("UTF-8");
+		request.setAttribute("user", user.getName());
+		rd = request.getRequestDispatcher("/view/index.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
@@ -76,8 +87,11 @@ public class logingooglehandler extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		processRequest(request, response);
+		
+		usergoogleDTO user = processRequest(request, response);
+
 	}
+	
 
 	@Override
 	public String getServletInfo() {

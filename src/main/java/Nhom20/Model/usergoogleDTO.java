@@ -1,4 +1,4 @@
-package test;
+package Nhom20.Model;
 
 public class usergoogleDTO {
 	private String id;
