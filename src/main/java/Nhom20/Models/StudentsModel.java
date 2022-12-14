@@ -4,7 +4,7 @@ import java.sql.Date;
 public class StudentsModel {
 	private int studentId;
 	private String studentName;
-	private boolean gender;
+	private Boolean gender;
 	private Date birth;
 	private String email;
 	private String phone;
@@ -14,7 +14,7 @@ public class StudentsModel {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public StudentsModel(int studentId, String studentName, boolean gender, Date birth, String email, String phone,
+	public StudentsModel(int studentId, String studentName, Boolean gender, Date birth, String email, String phone,
 			String address, int majorId) {
 		super();
 		this.studentId = studentId;
@@ -38,10 +38,10 @@ public class StudentsModel {
 	public void setStudentName(String studentName) {
 		this.studentName = studentName;
 	}
-	public boolean isGender() {
+	public Boolean getGender() {
 		return gender;
 	}
-	public void setGender(boolean gender) {
+	public void setGender(Boolean gender) {
 		this.gender = gender;
 	}
 	public Date getBirth() {

@@ -6,12 +6,12 @@ public class SignUpModel {
 	private int signUpId;
 	private Date startTime;
 	private Date endTime;
-	private boolean role;
+	private Boolean role;
 	public SignUpModel() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public SignUpModel(int signUpId, Date startTime, Date endTime, boolean role) {
+	public SignUpModel(int signUpId, Date startTime, Date endTime, Boolean role) {
 		super();
 		this.signUpId = signUpId;
 		this.startTime = startTime;
@@ -36,10 +36,10 @@ public class SignUpModel {
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
-	public boolean isRole() {
+	public Boolean getRole() {
 		return role;
 	}
-	public void setRole(boolean role) {
+	public void setRole(Boolean role) {
 		this.role = role;
 	}
 	
