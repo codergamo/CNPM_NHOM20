@@ -14,8 +14,8 @@ import org.apache.http.client.fluent.Request;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-import Nhom20.Model.Constants;
-import Nhom20.Model.usergoogleDTO;
+import Nhom20.Models.Constants;
+import Nhom20.Models.usergoogleDTO;
 
 import org.apache.http.client.fluent.Form;
 

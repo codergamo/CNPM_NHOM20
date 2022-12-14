@@ -1,4 +1,4 @@
-package Nhom20.Model;
+package Nhom20.Models;
 
 public class Constants {
 
