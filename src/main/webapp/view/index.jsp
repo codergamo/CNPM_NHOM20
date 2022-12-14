@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
@@ -10,53 +11,34 @@
     <link rel="icon" href="/Content/public/images/it_spkt.png" type="image/x-icon" />
     <link rel="shortcut icon" href="/Content/public/images/it_spkt.png" />
     <title>::. Th&#244;ng b&#225;o .::</title>
-    <link rel="stylesheet" media="all" type="text/css" href="../Content/public/css/bootstrap.min.css" />
-    <link rel="stylesheet" media="all" type="text/css" href="../Content/public/css/style.css" />
-    <link rel="stylesheet" media="all" type="text/css" href="../Content/public/css/footable.core.css" />
-    <link rel="stylesheet" media="all" type="text/css" href="../Content/public/css/footable.standalone.css" />
-    <link href="../Content/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="../Content/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" media="all" type="text/css" href="<c:url value="/Content/public/css/bootstrap.min.css"/>" />
+    <link rel="stylesheet" media="all" type="text/css" href="<c:url value="/Content/public/css/style.css"/>" />
+    <link rel="stylesheet" media="all" type="text/css" href="<c:url value="/Content/public/css/footable.core.css"/>" />
+    <link rel="stylesheet" media="all" type="text/css" href="<c:url value="/Content/public/css/footable.standalone.css"/>" />
+    <link rel="stylesheet" href="<c:url value="/Content/font/font-awesome.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/Content/font/font-awesome.css"/>">
 
-    <script type="text/javascript" src="../Content/public/js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="../Content/public/js/footable.js"></script>
-    <script type="text/javascript" src="../Content/public/js/my_script.js"></script>
-    <script src="../Content/public/ckeditor/ckeditor.js"></script>
-    <link href="../Content/public/datepicker/jquery.simple-dtpicker.css" rel="stylesheet" />
-    <script src="../Content/public/datepicker/jquery.simple-dtpicker.js"></script>
+    <script type="text/javascript" src="<c:url value="/Content/public/js/jquery-1.10.2.min.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/Content/public/js/footable.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/Content/public/js/my_script.js"/>"></script>
+    <script src="<c:url value="/Content/public/ckeditor/ckeditor.js"/>"></script>
+    <link href="<c:url value="/Content/public/datepicker/jquery.simple-dtpicker.css"/>" rel="stylesheet" />
+    <script src="<c:url value="/Content/public/datepicker/jquery.simple-dtpicker.js"/>"></script>
  
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!--[if gt IE 8]>
-        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" >
-    <![endif]-->
-    <!-- Font Awesom core -->
-    <!--[if IE 7]>
-      <link rel="stylesheet" href="http://dkdt.fit.hcmute.edu.vn/public/font-awesome/css/font-awesome-ie7.min.css">
-      <link rel="stylesheet" href="http://dkdt.fit.hcmute.edu.vn/public/font-awesome/css/bootstrap-ie7.css">
-    <![endif]-->
 </head>
 <body>
     <div id="menu">
        <li class="list-group-item" style="text-align: right;font-weight:bold;font-family:verdana;background-color:#efefef;">Danh Mục</li>
-        <a href="/Home/Index" class="list-group-item"><img src="../Content/public/images/house-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Trang Chủ</a>
+        <a href="/Home/Index" class="list-group-item">
+        <img src="<c:url value="/Content/public/images/house-icon.png"/>" width="24" height="24" />
+        <span class="pull-right"><i class="icon-chevron-right"></i></span> Trang Chủ</a>
         <a href="/Home/LoaiDeTai" class="list-group-item "><img src="../Content/public/images/Actions-view-calendar-list-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Danh sách đề tài</a>
         <a href="/Home/ThongTinGiangVien" class="list-group-item "><img src="../Content/public/images/Teacher-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin giảng viên</a>
         <a href="/Home/ThongTinSinhVien" class="list-group-item "><img src="../Content/public/images/Student-3-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin sinh viên</a>
-
         <a data-toggle="modal" href="#seach_box" class="list-group-item"><img src="../Content/public/images/Search-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Tìm kiếm</a>
-        <hr />
-
-        
-
-
-      
+        <hr />      
     </div>
     <div id="container">
-        
-        
-
 <div id="mobile-bar">
     <span style="cursor: pointer;" class="pull-left" href="javascript:;" onclick="slideMenu(); return false;" id="slideicon"><i class="icon-reorder"></i></span>
         <span data-toggle="modal" href="#dang_nhap" class="pull-right btn btn-default btn-sm" id="#">Sign In</span>
@@ -67,7 +49,7 @@
                 <div class="container">
                     <div id="banner">
                         <div id="login-area">
-                                   <a data-toggle="modal" href="#dang_nhap"><img src="../Content/public/images/Login-icon.png" width="24" height="24" /> Đăng nhập</a>
+                                   <a data-toggle="modal" href="#dang_nhap"><img src="<c:url value="/Content/public/images/Login-icon.png"/>" width="24" height="24" /> Đăng nhập</a>
 
 
 
@@ -200,13 +182,13 @@
                                         <h4 id="mobile_home">Danh Mục</h4>
                                     </div>
                                     
-                                    <a href="/Home/Index" class="list-group-item"><img src="../Content/public/images/house-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Trang Chủ</a>
-                                    <a href="/Home/LoaiDeTai" class="list-group-item "><img src="../Content/public/images/Actions-view-calendar-list-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Danh sách đề tài</a>
-                                    <a href="/Home/ThongTinGiangVien" class="list-group-item "><img src="../Content/public/images/Teacher-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin giảng viên</a>
-                                    <a href="/Home/ThongTinSinhVien" class="list-group-item "><img src="../Content/public/images/Student-3-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin sinh viên</a>
-                                    <a href="/Home/HuongDanDangKy" class="list-group-item "><img src="../Content/public/images/Actions-help-contents-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Hướng dẫn đăng ký</a>
-                                    <a href="/Home/ThongKe" class="list-group-item "><img src="../Content/public/images/chart-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thống kê</a>
-                                    <a data-toggle="modal" href="#seach_box" class="list-group-item"><img src="../Content/public/images/Search-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Tìm kiếm</a>
+                                    <a href="/Home/Index" class="list-group-item"><img src="<c:url value="/Content/public/images/house-icon.png"/>" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Trang Chủ</a>
+                                    <a href="/Home/LoaiDeTai" class="list-group-item "><img src="<c:url value="/Content/public/images/Actions-view-calendar-list-icon.png"/>" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Danh sách đề tài</a>
+                                    <a href="/Home/ThongTinGiangVien" class="list-group-item "><img src="<c:url value="/Content/public/images/Teacher-icon.png"/>" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin giảng viên</a>
+                                    <a href="/Home/ThongTinSinhVien" class="list-group-item "><img src="<c:url value="/Content/public/images/Student-3-icon.png"/>" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin sinh viên</a>
+                                    <a href="/Home/HuongDanDangKy" class="list-group-item "><img src="<c:url value="/Content/public/images/Actions-help-contents-icon.png"/>" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Hướng dẫn đăng ký</a>
+                                    <a href="/Home/ThongKe" class="list-group-item "><img src="<c:url value="/Content/public/images/chart-icon.png"/>" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thống kê</a>
+                                    <a data-toggle="modal" href="#seach_box" class="list-group-item"><img src="<c:url value="/Content/public/images/Search-icon.png"/>" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Tìm kiếm</a>
                                 </div><!-- /panel-default -->
 
                                 
@@ -428,7 +410,7 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
-    <script type="text/javascript" src="../Content/public/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<c:url value="/Content/public/js/bootstrap.min.js"/>"></script>
 </body>
 </html>
 
