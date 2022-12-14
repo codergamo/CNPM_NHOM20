@@ -44,8 +44,7 @@
         <a href="/Home/LoaiDeTai" class="list-group-item "><img src="../Content/public/images/Actions-view-calendar-list-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Danh sách đề tài</a>
         <a href="/Home/ThongTinGiangVien" class="list-group-item "><img src="../Content/public/images/Teacher-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin giảng viên</a>
         <a href="/Home/ThongTinSinhVien" class="list-group-item "><img src="../Content/public/images/Student-3-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin sinh viên</a>
-        <a href="/Home/HuongDanDangKy" class="list-group-item "><img src="../Content/public/images/Actions-help-contents-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Hướng dẫn đăng ký</a>
-        <a href="/Home/ThongKe" class="list-group-item "><img src="../Content/public/images/chart-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thống kê</a>
+
         <a data-toggle="modal" href="#seach_box" class="list-group-item"><img src="../Content/public/images/Search-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Tìm kiếm</a>
         <hr />
 
@@ -215,15 +214,7 @@
 
 
                                 <!--============================Bench==================-->
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 id="mobile_thongke">Thống kê</h4>
-                                    </div>
-                                    
-                                    <a class="list-group-item"><img src="/Content/public/images/user-group-icon (1).png" width="24" height="24" /> Lượt truy cập : <span class="badge">110607</span></a>
-                                    <a style="text-decoration: underline;" data-toggle="modal" data-target="#who_online" title="Who is online ?" href="javascript:void();" class="list-group-item"><img src="/Content/public/images/online-icon.png" width="24" height="24" /> Đang trực tuyến: <span class="badge">8</span></a>
-                                </div>
-                            </div>
+                                
                             <!-- Modal Who online -->
                             <div class="modal fade" id="who_online" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -324,28 +315,9 @@
                     <ol class="breadcrumb">
                         <li><a href="/Home/Index">Home</a></li>
                         
-                    </ol>    <div class="well-sm">
-                        <span>
-                            <span id="random_tin">
-                                <i class="icon-bullhorn"></i>&nbsp;
-                                <img src="/Content/public/images/bullet-blue-icon.png" />
-                                      <small>
-        <a href="/Home/TinTuGiaoVu?id=9">
-
-            Th&#244;ng b&#225;o đăng k&#253; chuy&#234;n ng&#224;nh kh&#243;a 2018 <small style="color: rgb(87,87,87);">(30/11/2020 10:15:04)</small>
-        </a>
-    </small>
-
-
-                            </span>
-                            <span id="time_bar">
-
-                                <span id="time" class="label label-primary pull-right"><i class="icon-time"></i> 17 giờ 29 phút, ngày 8 tháng 12, 2022</span><br>                             
-                            </span>
-                        </span>
-                    </div>
+                    </ol>    
                         
-<div class="panel panel-default">
+<!-- <div class="panel panel-default">
     <div style="color: rgb(7, 132, 163);" class="panel-heading">
         <h4 style="font-family: verdana;color:rgb(87,87,87);">Thông báo</h4>
     </div>
@@ -432,18 +404,9 @@
         </ul>
         <div class="pagination-container"><ul class="pagination"><li class="active"><a>1</a></li><li><a href="/?page=2">2</a></li><li class="PagedList-skipToNext"><a href="/?page=2" rel="next">»</a></li></ul></div>
     </div>
-</div>
+</div> -->
 
-                        <ol class="breadcrumb">
-                            <li><a href="/Home/Index">Home</a></li>
-                            
-                        </ol>                    
-                    <div class="panel panel-default" id="thongke_right">
-                            <div class="panel-heading">
-                                <h4 id="mobile_thongke">Thống kê</h4>
-                            </div>
-                        <a class="list-group-item"><img src="/Content/public/images/user-group-icon (1).png" width="24" height="24" /> Lượt truy cập : <span class="badge">110607</span></a>
-                        <a style="text-decoration: underline;" data-toggle="modal" data-target="#who_online" title="Who is online ?" href="javascript:void();" class="list-group-item"><img src="/Content/public/images/online-icon.png" width="24" height="24" /> Đang trực tuyến: <span class="badge">8</span></a>
+                                    
                         </div>
                     </div>
             </div>
