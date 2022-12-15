@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="<c:url value="/Content/font/font-awesome.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/Content/font/font-awesome.css"/>">
 
+	
     <script type="text/javascript" src="<c:url value="/Content/public/js/jquery-1.10.2.min.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/Content/public/js/footable.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/Content/public/js/my_script.js"/>"></script>
@@ -35,10 +36,14 @@
         <a href="/Home/LoaiDeTai" class="list-group-item "><img src="../Content/public/images/Actions-view-calendar-list-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Danh sách đề tài</a>
         <a href="/Home/ThongTinGiangVien" class="list-group-item "><img src="../Content/public/images/Teacher-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin giảng viên</a>
         <a href="/Home/ThongTinSinhVien" class="list-group-item "><img src="../Content/public/images/Student-3-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin sinh viên</a>
+
         <a data-toggle="modal" href="#seach_box" class="list-group-item"><img src="../Content/public/images/Search-icon.png" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Tìm kiếm</a>
         <hr />      
     </div>
     <div id="container">
+        
+        
+
 <div id="mobile-bar">
     <span style="cursor: pointer;" class="pull-left" href="javascript:;" onclick="slideMenu(); return false;" id="slideicon"><i class="icon-reorder"></i></span>
         <span data-toggle="modal" href="#dang_nhap" class="pull-right btn btn-default btn-sm" id="#">Sign In</span>
@@ -389,7 +394,7 @@
 </div> -->
 
                                     
-                        </div>
+                </div>
                     </div>
             </div>
         </div>

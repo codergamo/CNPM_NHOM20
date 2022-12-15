@@ -12,7 +12,6 @@ import Nhom20.Dao.*;
 import Nhom20.Models.*;
 
 public class TeachersDaoImpl extends DBConnect implements ITeachersDao{
-	@Override
 	public void insert(TeachersModel teachers) {
 		// TODO Auto-generated method stub
 		String sql = "INSERT INTO teachers(teachersName,gender,birth,email,phone) VALUES (?,?,?,?,?)";
@@ -36,15 +35,18 @@ public class TeachersDaoImpl extends DBConnect implements ITeachersDao{
 	
 	@Override
 	public void edit(TeachersModel teachers) {
-		String sql = "UPDATE  teachers SET teachersName=?, gender=?, birth=? email=?, phone=? WHERE teachersId=?";
+
+		String sql = "UPDATE  teachers SET teacherName=?, gender=?, birth=?, phone=? WHERE email=?";
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
-//			ps.setString(1, teachers.getteachersName());
-//			ps.setBoolean(2, teachers.getGender());
-//			ps.setDate(3, teachers.getBirth());
-//			ps.setInt(6, teachers.getteachersId());
 			
+			ps.setString(1, teachers.getTeacherName());
+			ps.setBoolean(2, teachers.getGender());
+			ps.setDate(3, teachers.getBirth());
+			ps.setString(4, teachers.getPhone());
+			ps.setString(5, teachers.getEmail());
+
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,23 +68,24 @@ public class TeachersDaoImpl extends DBConnect implements ITeachersDao{
 	}
 
 	@Override
-	public TeachersModel get(int id) {
-		String sql = "SELECT * FROM teachers WHERE username = ? ";
+	public TeachersModel getByUser(String user) {
+		String sql = "SELECT * FROM teachers WHERE email = ? ";
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, id);
+			ps.setString(1, user);
 			ResultSet rs = ps.executeQuery();
+			
 			while (rs.next()) {
-				TeachersModel major = new TeachersModel();
-//				teacherser.setteachersId(rs.getInt("teachersId"));
-//				teacherser.setteachersName(rs.getString(id));
-//				teacherser.setteachersId(rs.getInt("teachersId"));
-//				teacherser.setBoolean(3, signup.getBoolean());
-//				teacherser.setCreatedAt(rs.getDate("createdAt"));
-//				teacherser.setPrice(rs.getBigDecimal("price"));
-		
-				return major;
+				int teacherId = rs.getInt("teacherId");
+			    String teacherName = rs.getString("teacherName");
+			    Boolean gender = rs.getBoolean("gender");
+			    Date birth  = rs.getDate("birth");;
+			    String email = rs.getString("email");
+			    String phone = rs.getString("phone");
+				int majorId = rs.getInt("majorId");
+				
+				return new TeachersModel(teacherId,teacherName,gender,birth,email,phone,majorId);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -118,27 +121,42 @@ public class TeachersDaoImpl extends DBConnect implements ITeachersDao{
 
 	@Override
 	public TeachersModel findById(int id) {
-		String sql = "SELECT * FROM teachers WHERE id = ? ";
+
+
+		String sql = "SELECT * FROM teachers WHERE teacherId = ? ";
+
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				TeachersModel teachers = new TeachersModel();
 
-//				teacherser.setteachersId(rs.getInt("teachersId"));
-//				teacherser.setteachersName(rs.getString(id));
-//				teacherser.setteachersId(rs.getInt("teachersId"));
-//				teacherser.setCreatedAt(rs.getDate("createdAt"));
-//				teacherser.setPrice(rs.getBigDecimal("price"));
+				TeachersModel teacher = new TeachersModel();
+
+				teacher.setTeacherId(rs.getInt("teacherId"));
+				teacher.setTeacherName(rs.getString("teacherName"));
+				teacher.setGender(rs.getBoolean("gender"));
+				teacher.setBirth(rs.getDate("birth"));
+				teacher.setEmail(rs.getString("email"));
+				teacher.setPhone(rs.getString("phone"));
+				teacher.setMajorId(rs.getInt("majorId"));
 				
-				return teachers;
+				return teacher;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
+
+
+	@Override
+	public TeachersModel get(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	
 }

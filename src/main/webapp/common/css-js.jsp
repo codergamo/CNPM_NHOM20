@@ -3,13 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="icon" href="/Content/public/images/it_spkt.png" type="image/x-icon" />
 <link rel="shortcut icon" href="/Content/public/images/it_spkt.png" />
-<title>::. Th&#244;ng b&#225;o .::</title>
 <link rel="stylesheet" media="all" type="text/css" href="<c:url value="/Content/public/css/bootstrap.min.css"/>" />
 <link rel="stylesheet" media="all" type="text/css" href="<c:url value="/Content/public/css/style.css"/>" />
 <link rel="stylesheet" media="all" type="text/css" href="<c:url value="/Content/public/css/footable.core.css"/>" />
 <link rel="stylesheet" media="all" type="text/css" href="<c:url value="/Content/public/css/footable.standalone.css"/>" />
 <link rel="stylesheet" href="<c:url value="/Content/font/font-awesome.min.css"/>">
 <link rel="stylesheet" href="<c:url value="/Content/font/font-awesome.css"/>">
+<link rel="stylesheet" media="all" type="text/css" href="<c:url value="/Content/public/css/style.css"/>">
+
 
 <script type="text/javascript" src="<c:url value="/Content/public/js/jquery-1.10.2.min.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/Content/public/js/footable.js"/>"></script>

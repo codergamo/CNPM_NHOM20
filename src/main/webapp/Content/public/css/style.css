@@ -1,3 +1,4 @@
+
 .e2_7 { 
 	overflow:hidden;
 }
@@ -145,23 +146,25 @@ a.list-group-item:active
     background:  rgb(252, 248, 227) url('../images/alert.png') no-repeat;
     background-position:14px 8px;
 }
-.alert-warning:before 
+/* .alert-warning:before 
 {
     content:"Cảnh báo ! ";
     font-weight: bold;
     display:block;
     padding-bottom:8px;
     padding-left:36px;
-}
-.alert-danger
+} */
+
+.alert-danger1
 {
     border-left: 5px solid rgb(232, 12, 77);
     background:  rgb(242, 222, 222) url('../images/error.png') no-repeat;
     background-position:14px 8px;
+   
 }
 .alert-danger:before 
 {
-    content:"Có lỗi ! ";
+    content:"ss";
     font-weight: bold;
     display:block;
     padding-bottom:8px;
@@ -173,7 +176,7 @@ a.list-group-item:active
     background:  rgb(223, 240, 216) url('../images/success.png') no-repeat;
     background-position:14px 8px;
 }
-.alert-success:before 
+/* .alert-success:before 
 {
     content:"Thành công ! ";
     font-weight: bold;
@@ -188,7 +191,7 @@ a.list-group-item:active
     display:block;
     padding-bottom:8px;
     padding-left:36px;
-}
+} */
 .alert-info
 {
     border-left: 5px solid #3a87ad;

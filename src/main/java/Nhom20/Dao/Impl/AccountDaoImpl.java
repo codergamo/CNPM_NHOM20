@@ -49,12 +49,12 @@ public class AccountDaoImpl extends DBConnect implements IAccountDao{
 	}
 
 	@Override
-	public void delete(int id) {
+	public void delete(String username) {
 		String sql = "DELETE FROM Account WHERE username = ?";
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, id);
+			//ps.setInt(1, id);
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -63,12 +63,11 @@ public class AccountDaoImpl extends DBConnect implements IAccountDao{
 	}
 
 	@Override
-	public AccountModel get(int id) {
-		String sql = "SELECT * FROM Account WHERE username = ? ";
+	public AccountModel get(String username) {
+		String sql = "SELECT * FROM Account WHERE username = '" + username +"' ";
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				AccountModel accounter = new AccountModel();
@@ -105,12 +104,11 @@ public class AccountDaoImpl extends DBConnect implements IAccountDao{
 	}
 
 	@Override
-	public AccountModel findById(int id) {
-		String sql = "SELECT * FROM account WHERE id = ? ";
+	public AccountModel findById(String username) {
+		String sql = "SELECT * FROM account WHERE id = '" + username +"' ";
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				AccountModel accounter = new AccountModel();

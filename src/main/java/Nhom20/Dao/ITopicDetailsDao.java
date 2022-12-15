@@ -5,6 +5,7 @@ import java.util.List;
 import Nhom20.Models.TopicDetailsModel;
 
 public interface ITopicDetailsDao {
+
 	void insert(TopicDetailsModel topicdetails);
 
 	void edit(TopicDetailsModel topicdetails);
@@ -16,5 +17,13 @@ public interface ITopicDetailsDao {
 	List<TopicDetailsModel> getAll();
 
 	TopicDetailsModel findById(int id);
+
+	List<TopicDetailsModel> findTopicDetailByTopicId(int topicId);
+
+	String findMajorNameByTopicDetail(int topicId);
+
+	void insertMenber(TopicDetailsModel topicdetail);
+
+	void insertLeader(TopicDetailsModel topicdetail);
 
 }

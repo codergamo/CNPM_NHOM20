@@ -11,7 +11,7 @@
                                         <h4 id="mobile_home">Danh Mục</h4>
                                     </div>
                                     
-                                    <a href="/Home/Index" class="list-group-item"><img src="<c:url value="/Content/public/images/house-icon.png"/>" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Trang Chủ</a>
+                                    <a href="./home" class="list-group-item"><img src="<c:url value="/Content/public/images/house-icon.png"/>" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Trang Chủ</a>
                                     <a href="/Home/LoaiDeTai" class="list-group-item "><img src="<c:url value="/Content/public/images/Actions-view-calendar-list-icon.png"/>" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Danh sách đề tài</a>
                                     <a href="/Home/ThongTinGiangVien" class="list-group-item "><img src="<c:url value="/Content/public/images/Teacher-icon.png"/>" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin giảng viên</a>
                                     <a href="/Home/ThongTinSinhVien" class="list-group-item "><img src="<c:url value="/Content/public/images/Student-3-icon.png"/>" width="24" height="24" /><span class="pull-right"><i class="icon-chevron-right"></i></span> Thông tin sinh viên</a>

@@ -10,11 +10,11 @@ public interface IAccountDao {
 
 	void edit(AccountModel account);
 
-	void delete(int id);
+	void delete(String username);
 
-	AccountModel get(int id);
+	AccountModel get(String username);
 
 	List<AccountModel> getAll();
 
-	AccountModel findById(int id);
+	AccountModel findById(String username);
 }

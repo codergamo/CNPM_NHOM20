@@ -8,8 +8,8 @@ import java.util.List;
 import java.sql.Date;
 
 import Nhom20.Connection.*;
-import Nhom20.Dao.*;
-import Nhom20.Models.*;
+import Nhom20.Dao.ITopicDetailsDao;
+import Nhom20.Models.TopicDetailsModel;
 
 public class TopicDetailsDaoImpl extends DBConnect implements ITopicDetailsDao{
 	@Override
@@ -140,5 +140,82 @@ public class TopicDetailsDaoImpl extends DBConnect implements ITopicDetailsDao{
 		}
 		return null;
 	}
+	@Override
+	public List<TopicDetailsModel> findTopicDetailByTopicId(int topicId) {
+		String sql = "select * from Topic, TopicDetails WHERE Topic.topicId=TopicDetails.topicId and Topic.topicId=?";
+		List<TopicDetailsModel> topicdetails = new ArrayList<TopicDetailsModel>();
+		try {
+			Connection con = super.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, topicId);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				TopicDetailsModel topicdetail = new TopicDetailsModel();
+
+				topicdetail.setId(rs.getInt("id"));
+				topicdetail.setTopicId(rs.getInt("topicId"));
+				topicdetail.setStudentId(rs.getInt("studentId"));
+				topicdetail.setLeader(rs.getBoolean("leader"));
+				topicdetail.setScores(rs.getFloat("scores"));
+				
+				topicdetails.add(topicdetail);
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return topicdetails;
+	}
 	
+	@Override
+	public String findMajorNameByTopicDetail(int topicId) {
+		String sql = "select DISTINCT  Majors.majorName from Topic, TopicDetails, Students, Majors Where Topic.topicId=TopicDetails.topicId and TopicDetails.studentId=Students.studentId\r\n"
+				+ "and Students.majorId=Majors.majorId and TopicDetails.topicId=?";
+		List<TopicDetailsModel> topicdetails = new ArrayList<TopicDetailsModel>();
+		try {
+			Connection con = super.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, topicId);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				return rs.getString("majorName");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	@Override
+	public void insertLeader(TopicDetailsModel topicdetail) {
+		// TODO Auto-generated method stub
+		String sql = "INSERT INTO topicDetails(topicId, studentId, leader, scores) VALUES (?,?,1,-1)";
+		try {
+			Connection con = super.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, topicdetail.getTopicId());
+			ps.setInt(2, topicdetail.getStudentId());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	@Override
+	public void insertMenber(TopicDetailsModel topicdetail) {
+		// TODO Auto-generated method stub
+		String sql = "INSERT INTO topicDetails(topicId, studentId, leader, scores) VALUES (?,?,0,-1)";
+		try {
+			Connection con = super.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, topicdetail.getTopicId());
+			ps.setInt(2, topicdetail.getStudentId());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 }
