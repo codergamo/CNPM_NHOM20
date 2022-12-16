@@ -20,7 +20,7 @@
 				<%@include file="/common/sinhvien/menu_left.jsp"%>
 				<div class="col-md-9">
 					<ol class="breadcrumb">
-						<li><a href="/Home/Index">Home</a></li>
+						<li><a href="./home">Home</a></li>
 
 					</ol>
 					<dec:body/>

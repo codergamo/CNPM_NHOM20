@@ -8,7 +8,7 @@ public interface IAccountDao {
 
 	void insert(AccountModel account);
 
-	void edit(AccountModel account);
+	void edit(AccountModel account, String nwpassword);
 
 	void delete(String username);
 

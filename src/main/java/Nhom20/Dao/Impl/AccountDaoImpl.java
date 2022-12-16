@@ -33,15 +33,15 @@ public class AccountDaoImpl extends DBConnect implements IAccountDao{
 	
 	
 	@Override
-	public void edit(AccountModel account) {
-		String sql = "UPDATE  Account SET username=?, password=?, role=? WHERE username=?";
+	public void edit(AccountModel account, String nwpassword) {
+		String sql = "UPDATE  Account SET username=?, password=? WHERE username=? and password=?";
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, account.getUsername());
-			ps.setString(2, account.getPassword());
-			ps.setInt(3, account.getRole());
-			
+			ps.setString(2, nwpassword);
+			ps.setString(3, account.getUsername());
+			ps.setString(4, account.getPassword());
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

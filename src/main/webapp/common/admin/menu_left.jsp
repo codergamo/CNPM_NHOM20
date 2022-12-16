@@ -25,7 +25,7 @@
 					                <a href="/SinhVien/LoaiDeTai" class="list-group-item  "><img src="<c:url value="/Content/public/images/Actions-document-edit-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Đăng ký đề tài</a>
 					                <a href="/SinhVien/QuanLyNhom" class="list-group-item  "><img src="<c:url value="/Content/public/images/user-group-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Quản lý nhóm</a>
 					                <a href="/SinhVien/BaoCaoLoaiDetai" class="list-group-item  "><img src="<c:url value="/Content/public/images/Documents-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Quản lý báo cáo</a>					                
-					                <a href="/Home/DangXuat" class="list-group-item"><img src="<c:url value="/Content/public/images/Apps-session-logout-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Đăng xuất</a>
+					                <a href="../logout" class="list-group-item"><img src="<c:url value="/Content/public/images/Apps-session-logout-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Đăng xuất</a>
                			 			<div class="modal fade" id="change_info">
                    	 					<div class="modal-dialog">
                         					<div class="modal-content">

@@ -7,7 +7,7 @@
                 <div class="container">
                     <div id="banner">
                         <div id="login-area">
-                                  <p>${account.username}  </p>
+                                  <p style = "color: yellow;font-size: small;">${account.username}  </p>
                         </div>
                     </div>
                 </div>

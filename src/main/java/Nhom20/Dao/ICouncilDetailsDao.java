@@ -16,4 +16,12 @@ public interface ICouncilDetailsDao {
 	List<CouncilDetailsModel> getAll();
 
 	CouncilDetailsModel findById(int id);
+	
+	List<CouncilDetailsModel> getAllByTeacher(int teacherId);
+
+	List<CouncilDetailsModel> getAllByCouncilId(int councilId);
+
+	List<CouncilDetailsModel> getAllTeacherByCouncilId(int councilId);
+
+	String findByCouncilId(int topicId);
 }
