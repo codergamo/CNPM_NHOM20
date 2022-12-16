@@ -26,12 +26,13 @@
 								aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
 						</div>
 					</div>
-					<c:if test="${alerts != null }">
-						<h3 class="alerts alert-danger1 ">${alerts}</h3>
-					</c:if>
+
 				</div>
 
 				<div class="modal-footer">
+					<c:if test="${alerts != null }">
+						<h3 class="alerts alert-danger1 ">${alerts}</h3>
+					</c:if>
 					<button type="submit" class="btn btn-primary" id="login_btn">Đăng
 						nhập</button>
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

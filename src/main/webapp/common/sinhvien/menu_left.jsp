@@ -14,7 +14,7 @@
                                     </div>
                                     
                                     <a href="${link}/home" class="list-group-item"><img src="<c:url value="/Content/public/images/house-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Trang Chủ</a>
-                                    <a href=".../home/loaidetai" class="list-group-item "><img src="<c:url value="/Content/public/images/Actions-view-calendar-list-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Danh sách đề tài</a>
+                                    <a href="${link}/list-topic" class="list-group-item "><img src="<c:url value="/Content/public/images/Actions-view-calendar-list-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Danh sách đề tài</a>
                                     <a href="/Home/HuongDanDangKy" class="list-group-item "><img src="<c:url value="/Content/public/images/Actions-help-contents-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Hướng dẫn đăng ký</a>
                                     <a href="/Home/ThongKe" class="list-group-item "><img src="<c:url value="/Content/public/images/chart-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Thống kê</a>
                                     <a data-toggle="modal" href="#seach_box" class="list-group-item"><img src="<c:url value="/Content/public/images/Search-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Tìm kiếm</a>
@@ -27,7 +27,8 @@
 					                <a href="/Home/ThongTinGiangVien" class="list-group-item "><img src="<c:url value="/Content/public/images/Teacher-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Thông tin giảng viên</a>
 					                <a href="/home/loaidetai" class="list-group-item  "><img src="<c:url value="/Content/public/images/Actions-document-edit-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Đăng ký đề tài</a>
 					                <a href="/SinhVien/QuanLyNhom" class="list-group-item  "><img src="<c:url value="/Content/public/images/user-group-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Quản lý nhóm</a>
-					                <a href="/SinhVien/BaoCaoLoaiDetai" class="list-group-item  "><img src="<c:url value="/Content/public/images/Documents-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Quản lý báo cáo</a>					                
+					                <a href="/SinhVien/BaoCaoLoaiDetai" class="list-group-item  "><img src="<c:url value="/Content/public/images/Documents-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Quản lý báo cáo</a>		
+					                <a href="${link}/doimatkhau" class="list-group-item  "><img src="<c:url value="/Content/public/images/key.png"/>" width="24" height="24"><span class="pull-right"></span> Đổi mật khẩu</a>			                
 					                <a href="${logout}" class="list-group-item"><img src="<c:url value="/Content/public/images/Apps-session-logout-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Đăng xuất</a>
                			 			<div class="modal fade" id="change_info">
                    	 					<div class="modal-dialog">

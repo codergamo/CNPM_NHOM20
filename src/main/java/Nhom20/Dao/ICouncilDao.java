@@ -5,6 +5,7 @@ import java.util.List;
 import Nhom20.Models.CouncilModel;
 
 public interface ICouncilDao {
+
 	void insert(CouncilModel council);
 
 	void edit(CouncilModel council);
@@ -16,4 +17,9 @@ public interface ICouncilDao {
 	List<CouncilModel> getAll();
 
 	CouncilModel findById(int id);
+	
+	CouncilModel getById(int id);
+
+	String checkTopicId(int topicId);
+
 }

@@ -6,8 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>HomePage</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Admin</title>
 <%@include file="/common/css-js.jsp"%>
 </head>
 <body>
@@ -20,16 +21,16 @@
 				<%@include file="/common/admin/menu_left.jsp"%>
 				<div class="col-md-9">
 					<ol class="breadcrumb">
-						<li><a href="/Home/Index">Home</a></li>
+						<li><a href="./home">Home</a></li>
 
 					</ol>
-					<dec:body/>
+					<dec:body />
 				</div>
 			</div>
 		</div>
 	</div>
 
 
-		<%@include file="/common/footer.jsp"%>
+	<%@include file="/common/footer.jsp"%>
 </body>
 </html>

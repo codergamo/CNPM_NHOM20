@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBConnect {
 	private final String serverName = "localhost";
-	private final String dbName ="DangKyDeTai";
+	private final String dbName ="QuanLyDeTaiCNPM";
 	private final String portNumber ="1433";
 	private final String instance ="";
 	private final String userID = "sa";

@@ -12,14 +12,16 @@ public interface ITeachersDao {
 
 	void delete(int id);
 
-
 	TeachersModel getByUser(String user);
 
 	TeachersModel get(int id);
 
-
 	List<TeachersModel> getAll();
 
+	List<TeachersModel> getAllTeacherCouncil(int teacherId);
+
 	TeachersModel findById(int id);
+
+	List<TeachersModel> getListSearh(String key);
 
 }

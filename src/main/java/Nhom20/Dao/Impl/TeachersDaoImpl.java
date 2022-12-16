@@ -12,6 +12,7 @@ import Nhom20.Dao.*;
 import Nhom20.Models.*;
 
 public class TeachersDaoImpl extends DBConnect implements ITeachersDao{
+	@Override
 	public void insert(TeachersModel teachers) {
 		// TODO Auto-generated method stub
 		String sql = "INSERT INTO teachers(teachersName,gender,birth,email,phone) VALUES (?,?,?,?,?)";
@@ -156,6 +157,73 @@ public class TeachersDaoImpl extends DBConnect implements ITeachersDao{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public List<TeachersModel> getListSearh(String key) {
+		List<TeachersModel> teachers= new ArrayList<TeachersModel>();
+		String sql = "DECLARE @value nvarchar(50)\r\n"
+				+ "set @value= N'%" + key +"%'\r\n"
+				+ "select Teachers.teacherId, Teachers.teacherName, Teachers.phone, Teachers.email,\r\n"
+				+ "(select Majors.majorName from Majors where Majors.majorId = Teachers.majorId) as majorName,\r\n"
+				+ "(select Topic.topicName from Topic  where Teachers.teacherId = Topic.teacherId) as topicName\r\n"
+				+ "from Teachers\r\n"
+				+ "where Teachers.teacherName like @value \r\n"
+				+ "or Teachers.teacherId like @value \r\n"
+				+ "or Teachers.phone  like @value\r\n"
+				+ "or Teachers.email  like @value";
+		try {
+			Connection con = super.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				TeachersModel teacher = new TeachersModel();
+				
+				teacher.setTeacherId(rs.getInt("teacherId"));
+				teacher.setTeacherName(rs.getString("teacherName"));
+				teacher.setPhone(rs.getString("phone"));
+				teacher.setEmail(rs.getString("email"));
+				
+				/*
+				 * teacher.setTopicName(rs.getString("topicName"));
+				 * teacher.setMajorName(rs.getString("majorName"));
+				 */
+				
+				teachers.add(teacher);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return teachers;
+	}
+
+	@Override
+	public List<TeachersModel> getAllTeacherCouncil(int teacherId) {
+		List<TeachersModel> teachers= new ArrayList<TeachersModel>();
+		String sql = "SELECT Teachers.teacherId, Teachers.teacherName, Teachers.email, Teachers.phone, Majors.majorName\r\n"
+				+ "FROM Teachers, Majors \r\n"
+				+ "Where Teachers.majorId = Majors.majorId";
+		try {
+			Connection con = super.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				TeachersModel teacher = new TeachersModel();
+				
+				if(rs.getInt("teacherId") != teacherId) {
+					teacher.setTeacherId(rs.getInt("teacherId"));
+					teacher.setTeacherName(rs.getString("teacherName"));
+					teacher.setEmail(rs.getString("email"));
+					teacher.setPhone(rs.getString("phone"));
+					/* teacher.setMajorName(rs.getString("majorName")); */
+					
+					teachers.add(teacher);
+				}				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return teachers;
+	}
+
 
 
 	
