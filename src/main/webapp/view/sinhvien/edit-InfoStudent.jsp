@@ -62,7 +62,7 @@
               <input type="text" class="form-control" name="address" placeholder="Địa chỉ" required value="${student.address }">
             </div>
             <hr class="mb-4">
-            <input type="submit" class="btn btn-success btn-lg btn-block" value="Cập nhật thông tin">
+            <input type="submit"  class="btn btn-success btn-lg btn-block" style = "background-color:  #428bca;" value="Cập nhật thông tin">
           </form>
         </div>
 	</div>

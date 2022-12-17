@@ -5,6 +5,7 @@ import java.util.List;
 import Nhom20.Models.MajorsModel;
 
 public interface IMajorsDao {
+
 	void insert(MajorsModel majors);
 
 	void edit(MajorsModel majors);
@@ -16,6 +17,7 @@ public interface IMajorsDao {
 	List<MajorsModel> getAll();
 
 	MajorsModel findById(int id);
+
 
 
 }

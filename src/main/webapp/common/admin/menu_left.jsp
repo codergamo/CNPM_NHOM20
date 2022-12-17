@@ -8,24 +8,17 @@
                             <!-- Menu desktop -->
                             <div id="desktop-menu">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 id="mobile_home">Danh Mục</h4>
+                                    <div class="panel-heading" style = 'text-align: center;background: #a9bffd;'>
+                                        <h4 style = 'color:red!important;' id="mobile_home"><b>Admin</b></h4>
                                     </div>
                                     
                                     <a href="${link}/home" class="list-group-item"><img src="<c:url value="/Content/public/images/house-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Trang Chủ</a>
-                                    <a href="${link}/singUp/add" class="list-group-item "><img src="<c:url value="/Content/public/images/Actions-view-calendar-list-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Danh sách đề tài</a>
+                                    <a href="${link}/list-topic" class="list-group-item "><img src="<c:url value="/Content/public/images/Actions-view-calendar-list-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Danh sách đề tài</a>
                                     <a href="${link}/singUp/add" class="list-group-item "><img src="<c:url value="/Content/public/images/Actions-document-edit-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Tạo đợt đăng ký</a>
-                                </div><!-- /panel-default -->
-                                <div class="panel panel-default">
-									<div class="panel-heading">
-                    					<h4 id="mobile_sinhvien">Sinh viên</h4>
-                					</div>
-					                <a href="${link}/info" class="list-group-item"><img src="<c:url value="/Content/public/images/Student-3-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Quản trị tài khoản</a>
-					                <a href="/Home/ThongTinGiangVien" class="list-group-item "><img src="<c:url value="/Content/public/images/Teacher-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Thông tin giảng viên</a>
-					                <a href="/SinhVien/LoaiDeTai" class="list-group-item  "><img src="<c:url value="/Content/public/images/Actions-document-edit-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Đăng ký đề tài</a>
-					                <a href="/SinhVien/QuanLyNhom" class="list-group-item  "><img src="<c:url value="/Content/public/images/user-group-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Quản lý nhóm</a>
-					                <a href="/SinhVien/BaoCaoLoaiDetai" class="list-group-item  "><img src="<c:url value="/Content/public/images/Documents-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Quản lý báo cáo</a>					                
-					                <a href="../logout" class="list-group-item"><img src="<c:url value="/Content/public/images/Apps-session-logout-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Đăng xuất</a>
+                                    <a href="${link}/Council" class="list-group-item "><img src="<c:url value="/Content/public/images/Actions-document-edit-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Tạo hội đồng chấm thi</a>
+                                    <a href="${link}/manage-account" class="list-group-item  "><img src="<c:url value="/Content/public/images/user-group-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Quản lý tài khoản</a>
+                            		<a href="${link}/manage-teacher" class="list-group-item"><img src="<c:url value="/Content/public/images/Student-3-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Quản lý giảng viên</a>
+					                <a href="${link}/manage-student" class="list-group-item "><img src="<c:url value="/Content/public/images/Teacher-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Quản lý sinh viên</a>
                			 			<div class="modal fade" id="change_info">
                    	 					<div class="modal-dialog">
                         					<div class="modal-content">

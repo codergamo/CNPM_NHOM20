@@ -13,7 +13,7 @@
 </head>
 <body>
 
-	<%@include file="/common/admin/header.jsp"%>
+	<%@include file="/common/header-to-logout.jsp"%>
 	<%-- <%@include file="/common/nav.jsp"%> --%>
 	<div id="wrapper">
 		<div class="container">

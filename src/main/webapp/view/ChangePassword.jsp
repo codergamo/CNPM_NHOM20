@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:url value="/student/doimatkhau" var="change"></c:url>
+<c:url value="./doimatkhau" var="change"></c:url>
 <div class="panel panel-default">
 	<div class="panel-body">
 		<div class="col-md-8 order-md-1" style="width: 100%">
@@ -32,10 +32,10 @@
 
 				</div>
 				<c:if test="${alerts != null }">
-					<h3 class="alerts alert-danger1 ">${alerts}</h3>
+					<h3 class="alerts alert-danger1 " style ="text-align: center;">${alerts}</h3>
 				</c:if>
 				<hr class="mb-4">
-				<input type="submit" class="btn btn-success btn-lg btn-block"
+				<input type="submit" style ="background-color: #007eff;" class="btn btn-success btn-lg btn-block"
 					value="Cập nhật thông tin">
 			</form>
 		</div>

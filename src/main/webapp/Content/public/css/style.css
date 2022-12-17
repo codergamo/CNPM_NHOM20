@@ -102,7 +102,7 @@
 }
 #left-content h4
 {
-    color:rgb(65, 179, 221)!important;
+    color:rgb(255, 0, 0);
 }
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus
 {

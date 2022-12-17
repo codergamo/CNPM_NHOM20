@@ -5,12 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Date;
 
-import Nhom20.Connection.*;
+import Nhom20.Connection.DBConnect;
 import Nhom20.Dao.IAdminsDao;
 import Nhom20.Models.AdminsModel;
-import Nhom20.Connection.DBConnect;
 
 public class AdminsDaoImpl extends DBConnect implements IAdminsDao{
 	@Override

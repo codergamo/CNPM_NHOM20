@@ -24,4 +24,5 @@ public class MajorsModel {
 	public void setMajorName(String majorName) {
 		this.majorName = majorName;
 	}
+	
 }

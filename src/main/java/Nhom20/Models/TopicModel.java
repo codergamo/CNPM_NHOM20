@@ -1,33 +1,43 @@
 package Nhom20.Models;
-
 import java.sql.Date;
 
 public class TopicModel {
-private int topicId;
+	private int topicId;
 	
 	private String topicName;
 	
 	private int teacherId;
 	
 	private String detail;
+	
+	//HuydzPRo
+	private String teacherName;
+	private int count;
+	private String majorName;
+
 	private Date createAt;
 	private String link;
 	
-	//
+	
 	private int quantityRegister;
 
-	public TopicModel(int topicId, String topicName, int teacherId, String detail,Date createdAt) {
-
+	public TopicModel(int topicId, String topicName, int teacherId, String detail, Date createAt) {
 		super();
 		this.topicId = topicId;
 		this.topicName = topicName;
 		this.teacherId = teacherId;
 		this.detail = detail;
-
-		this.createAt = createdAt;
-
+		this.createAt=createAt;
 	}
-
+	public TopicModel(int topicId, String topicName, int teacherId, String detail, Date createAt, String link) {
+		super();
+		this.topicId = topicId;
+		this.topicName = topicName;
+		this.teacherId = teacherId;
+		this.detail = detail;
+		this.createAt = createAt;
+		this.link = link;
+	}
 	public TopicModel() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -35,15 +45,6 @@ private int topicId;
 
 	public int getTopicId() {
 		return topicId;
-	}
-
-
-	public Date getCreatedAt() {
-		return createAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createAt = createdAt;
 	}
 
 	public void setTopicId(int topicId) {
@@ -74,12 +75,20 @@ private int topicId;
 		this.detail = detail;
 	}
 
-	public int getQuantityRegister() {
-		return quantityRegister;
+	public String getTeacherName() {
+		return teacherName;
 	}
 
-	public void setQuantityRegister(int quantityRegister) {
-		this.quantityRegister = quantityRegister;
+	public void setTeacherName(String teacherName) {
+		this.teacherName = teacherName;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 
 	public Date getCreateAt() {
@@ -96,6 +105,20 @@ private int topicId;
 
 	public void setLink(String link) {
 		this.link = link;
+	}
+
+	public int getQuantityRegister() {
+		return quantityRegister;
+	}
+
+	public void setQuantityRegister(int quantityRegister) {
+		this.quantityRegister = quantityRegister;
+	}
+	public String getMajorName() {
+		return majorName;
+	}
+	public void setMajorName(String majorName) {
+		this.majorName = majorName;
 	}
 	
 }

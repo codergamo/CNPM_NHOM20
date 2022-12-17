@@ -5,6 +5,7 @@ import java.util.List;
 import Nhom20.Models.TopicModel;
 
 public interface ITopicDao {
+
 	void insert(TopicModel topic);
 
 	void edit(TopicModel topic);
@@ -17,9 +18,16 @@ public interface ITopicDao {
 
 	TopicModel findById(int id);
 
-	List<TopicModel> getAllByTeacher(int teacherId);
+	List<TopicModel> getListSearh(String key, int pageid);
+	
 
 	List<TopicModel> findTopicByEmail(String email);
+
+	List<TopicModel> getAllByTeacher(int teacherId);
+
+	TopicModel getById(int id);
+
+	void editReport(String linkReport, int topicId);
 
 
 }

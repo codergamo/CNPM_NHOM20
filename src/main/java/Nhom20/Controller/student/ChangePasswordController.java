@@ -18,7 +18,7 @@ import Nhom20.Models.AccountModel;
  * Servlet implementation class ChangePasswordController
  */
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = { "/student/doimatkhau" })
+@WebServlet(urlPatterns = { "/student/doimatkhau","/teacher/doimatkhau"})
 public class ChangePasswordController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -59,8 +59,9 @@ public class ChangePasswordController extends HttpServlet {
 		String alertmg = null;
 
 		if (acc.getPassword().equals(pass)) {
-			if (newpass.equals(retypenewpass)) {
-				iacc.edit(acc, newpass);
+			if (newpass.equals(retypenewpass)) {		
+				iacc.editPassword(acc,newpass);
+				acc.setPassword(newpass);
 				alertmg = "Đổi mật khẩu thành công";
 				request.setAttribute("alerts", alertmg);
 			} else {

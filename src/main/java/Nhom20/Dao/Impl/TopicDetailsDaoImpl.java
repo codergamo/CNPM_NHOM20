@@ -5,11 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Date;
 
-import Nhom20.Connection.*;
-import Nhom20.Dao.ITopicDetailsDao;
-import Nhom20.Models.TopicDetailsModel;
+import Nhom20.Connection.DBConnect;
+import Nhom20.Dao.*;
+import Nhom20.Models.*;
 
 public class TopicDetailsDaoImpl extends DBConnect implements ITopicDetailsDao{
 	@Override
@@ -36,15 +35,15 @@ public class TopicDetailsDaoImpl extends DBConnect implements ITopicDetailsDao{
 	
 	@Override
 	public void edit(TopicDetailsModel topicdetails) {
-		String sql = "UPDATE  topicdetails SET topicdetailsName=?, gender=?, birth=? email=?, phone=? WHERE topicdetailsId=?";
+		String sql = "UPDATE  topicdetails SET topicId=?, studentId=?, leader=? , Scores=? WHERE id=?";
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
-//			ps.setString(1, topicdetails.gettopicdetailsName());
-//			ps.setBoolean(2, topicdetails.getGender());
-//			ps.setDate(3, topicdetails.getBirth());
-//			ps.setInt(6, topicdetails.gettopicdetailsId());
-			
+			ps.setInt(1, topicdetails.getTopicId());
+			ps.setInt(2, topicdetails.getStudentId());
+			ps.setBoolean(3, topicdetails.getLeader());
+			ps.setFloat(4, topicdetails.getScores());
+			ps.setInt(5, topicdetails.getId());
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -156,7 +155,8 @@ public class TopicDetailsDaoImpl extends DBConnect implements ITopicDetailsDao{
 				topicdetail.setTopicId(rs.getInt("topicId"));
 				topicdetail.setStudentId(rs.getInt("studentId"));
 				topicdetail.setLeader(rs.getBoolean("leader"));
-				topicdetail.setScores(rs.getFloat("scores"));
+				if(rs.getString("scores")!=null)
+					topicdetail.setScores(rs.getFloat("scores"));
 				
 				topicdetails.add(topicdetail);
 				
@@ -169,9 +169,10 @@ public class TopicDetailsDaoImpl extends DBConnect implements ITopicDetailsDao{
 	
 	@Override
 	public String findMajorNameByTopicDetail(int topicId) {
-		String sql = "select DISTINCT  Majors.majorName from Topic, TopicDetails, Students, Majors Where Topic.topicId=TopicDetails.topicId and TopicDetails.studentId=Students.studentId\r\n"
-				+ "and Students.majorId=Majors.majorId and TopicDetails.topicId=?";
-		List<TopicDetailsModel> topicdetails = new ArrayList<TopicDetailsModel>();
+		String sql = "select DISTINCT  Majors.majorName \r\n"
+				+ "from Topic, Teachers, Majors \r\n"
+				+ "Where topic.teacherId=Teachers.teacherId and Teachers.majorId=Majors.majorId and Topic.topicId=?";
+//		List<TopicDetailsModel> topicdetails = new ArrayList<TopicDetailsModel>();
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -218,4 +219,32 @@ public class TopicDetailsDaoImpl extends DBConnect implements ITopicDetailsDao{
 		}
 
 	}
+	
+	@Override
+	public List<TopicDetailsModel> getAllByTopicId(int topicId) {
+		String sql = "select * from  TopicDetails WHERE topicId=?";
+		List<TopicDetailsModel> topicdetails = new ArrayList<TopicDetailsModel>();
+		try {
+			Connection con = super.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, topicId);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				TopicDetailsModel topicdetail = new TopicDetailsModel();
+
+				topicdetail.setId(rs.getInt("id"));
+				topicdetail.setTopicId(rs.getInt("topicId"));
+				topicdetail.setStudentId(rs.getInt("studentId"));
+				topicdetail.setLeader(rs.getBoolean("leader"));
+				topicdetail.setScores(rs.getFloat("scores"));
+				
+				topicdetails.add(topicdetail);
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return topicdetails;
+	}
+
 }

@@ -19,6 +19,9 @@
 							value="${password}" id="password" /> <br /> <a
 							href="/Home/QuenMatKhau" class="text-danger">Quên mật khẩu</a>
 					</div>
+					<c:if test="${alerts != null }">
+						<h3 class="alerts alert-danger1 " style = "text-align: center;">${alerts}</h3>
+					</c:if>
 					<br />
 					<div id="waiting" style="display: none;">
 						<div class="progress progress-striped active">
@@ -30,12 +33,11 @@
 				</div>
 
 				<div class="modal-footer">
-					<c:if test="${alerts != null }">
-						<h3 class="alerts alert-danger1 ">${alerts}</h3>
-					</c:if>
+
 					<button type="submit" class="btn btn-primary" id="login_btn">Đăng
 						nhập</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" onclick="location.href='./home';"
+						class="btn btn-default" ]>Close</button>
 				</div>
 			</form>
 		</div>
