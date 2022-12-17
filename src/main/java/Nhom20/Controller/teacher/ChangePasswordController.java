@@ -1,4 +1,4 @@
-package Nhom20.Controller.student;
+package Nhom20.Controller.teacher;
 
 import java.io.IOException;
 
@@ -18,7 +18,7 @@ import Nhom20.Models.AccountModel;
  * Servlet implementation class ChangePasswordController
  */
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = { "/student/doimatkhau","/teacher/doimatkhau"})
+@WebServlet(urlPatterns = { "/teacher/doimatkhau"})
 public class ChangePasswordController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -39,7 +39,6 @@ public class ChangePasswordController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/view/ChangePassword.jsp");
 		dispatcher.forward(request, response);
 	}
