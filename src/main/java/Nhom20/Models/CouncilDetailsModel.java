@@ -2,30 +2,23 @@ package Nhom20.Models;
 
 public class CouncilDetailsModel {
 	private int id;
-	private int councilId;
+	private int CouncilId;
 	private int teacherId;
 	private Boolean leader;
 	private float Scores;
 	private String teacherName;
-	public String getTeacherName() {
-		return teacherName;
-	}
-	public void setTeacherName(String teacherName) {
-		this.teacherName = teacherName;
-	}
+	
 	public CouncilDetailsModel() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public CouncilDetailsModel(int id, int councilId, int teacherId, Boolean leader, float scores, String teacherName) {
+	public CouncilDetailsModel(int id, int councilId, int teacherId, Boolean leader, float scores) {
 		super();
 		this.id = id;
-		this.councilId = councilId;
+		CouncilId = councilId;
 		this.teacherId = teacherId;
 		this.leader = leader;
 		Scores = scores;
-		this.teacherName = teacherName;
 	}
 	public int getId() {
 		return id;
@@ -34,10 +27,10 @@ public class CouncilDetailsModel {
 		this.id = id;
 	}
 	public int getCouncilId() {
-		return councilId;
+		return CouncilId;
 	}
 	public void setCouncilId(int councilId) {
-		this.councilId = councilId;
+		CouncilId = councilId;
 	}
 	public int getTeacherId() {
 		return teacherId;
@@ -56,6 +49,12 @@ public class CouncilDetailsModel {
 	}
 	public void setScores(float scores) {
 		Scores = scores;
+	}
+	public String getTeacherName() {
+		return teacherName;
+	}
+	public void setTeacherName(String teacherName) {
+		this.teacherName = teacherName;
 	}
 	
 }

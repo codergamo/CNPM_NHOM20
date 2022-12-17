@@ -17,8 +17,8 @@ public interface ISignUpDao {
 	void delete(int id);
 
 	void edit(SignUpModel signup);
+	SignUpModel getTop();
 
 	SignUpModel getLast();
-
-
+	
 }

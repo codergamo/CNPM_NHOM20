@@ -7,17 +7,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>HomePage</title>
+<title>Trang chủ</title>
 <%@include file="/common/css-js.jsp"%>
 </head>
 <body>
 
-	<%@include file="/common/header.jsp"%>
+	<%@include file="/common/header-to-logout.jsp"%>
 	<%-- <%@include file="/common/nav.jsp"%> --%>
 	<div id="wrapper">
 		<div class="container">
 			<div class="row">
-				<%@include file="/common/sinhvien/menu_left.jsp"%>
+				<%@include file="/common/teacher/menu_left.jsp"%>
 				<div class="col-md-9">
 					<ol class="breadcrumb">
 						<li><a href="./home">Home</a></li>

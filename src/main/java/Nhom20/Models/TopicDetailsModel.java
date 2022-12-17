@@ -1,11 +1,12 @@
 package Nhom20.Models;
-
 public class TopicDetailsModel {
 	private int id ;
 	private int topicId;
 	private int studentId;
 	private Boolean leader;
 	private float Scores;
+	
+
 	public TopicDetailsModel() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -2,19 +2,24 @@ package Nhom20.Dao;
 
 import java.util.List;
 
-import Nhom20.Models.*;
+import Nhom20.Models.AccountModel;
 
 public interface IAccountDao {
 
 	void insert(AccountModel account);
 
-	void edit(AccountModel account, String nwpassword);
+	void edit(AccountModel account);
 
-	void delete(String username);
+	void delete(int id);
 
 	AccountModel get(String username);
 
+	AccountModel findById(int id);
+
 	List<AccountModel> getAll();
 
-	AccountModel findById(String username);
+	void changePassByAdmin(AccountModel account);
+
+	void editPassword(AccountModel account, String nwpassword);
+
 }

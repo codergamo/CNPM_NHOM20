@@ -2,34 +2,28 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:url value="/student" var="link"></c:url>
-<c:url value="../logout" var="logout"></c:url>
+
 
                     <div id="left-content">
                         <div class="col-md-3">
                             <!-- Menu desktop -->
                             <div id="desktop-menu">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 id="mobile_home">Danh Mục</h4>
+                                    <div class="panel-heading" style = 'text-align: center;background: #a9bffd;'>
+                                        <h4 style = 'color:red!important;' id="mobile_home"><b>Sinh Viên</b></h4>
                                     </div>
                                     
                                     <a href="${link}/home" class="list-group-item"><img src="<c:url value="/Content/public/images/house-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Trang Chủ</a>
-                                    <a href="${link}/list-topic" class="list-group-item "><img src="<c:url value="/Content/public/images/Actions-view-calendar-list-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Danh sách đề tài</a>
-                                    <a href="/Home/HuongDanDangKy" class="list-group-item "><img src="<c:url value="/Content/public/images/Actions-help-contents-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Hướng dẫn đăng ký</a>
-                                    <a href="/Home/ThongKe" class="list-group-item "><img src="<c:url value="/Content/public/images/chart-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Thống kê</a>
-                                    <a data-toggle="modal" href="#seach_box" class="list-group-item"><img src="<c:url value="/Content/public/images/Search-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Tìm kiếm</a>
-                                </div><!-- /panel-default -->
-                                <div class="panel panel-default">
-									<div class="panel-heading">
-                    					<h4 id="mobile_sinhvien">Sinh viên</h4>
-                					</div>
-					                <a href="${link}/info" class="list-group-item"><img src="<c:url value="/Content/public/images/Student-3-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Quản trị tài khoản</a>
+                                    <a href="${link}/list-topic" class="list-group-item "><img src="<c:url value="/Content/public/images/Actions-view-calendar-list-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Danh sách đề tài</a>                               
+                                    
+                                	<a href="${link}/info" class="list-group-item"><img src="<c:url value="/Content/public/images/Student-3-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Quản trị tài khoản</a>
 					                <a href="/Home/ThongTinGiangVien" class="list-group-item "><img src="<c:url value="/Content/public/images/Teacher-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Thông tin giảng viên</a>
 					                <a href="/home/loaidetai" class="list-group-item  "><img src="<c:url value="/Content/public/images/Actions-document-edit-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Đăng ký đề tài</a>
 					                <a href="/SinhVien/QuanLyNhom" class="list-group-item  "><img src="<c:url value="/Content/public/images/user-group-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Quản lý nhóm</a>
 					                <a href="/SinhVien/BaoCaoLoaiDetai" class="list-group-item  "><img src="<c:url value="/Content/public/images/Documents-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Quản lý báo cáo</a>		
+					                <a data-toggle="modal" href="#seach_box" class="list-group-item"><img src="<c:url value="/Content/public/images/Search-icon.png"/>" width="24" height="24" /><span class="pull-right"></span> Tìm kiếm</a>
 					                <a href="${link}/doimatkhau" class="list-group-item  "><img src="<c:url value="/Content/public/images/key.png"/>" width="24" height="24"><span class="pull-right"></span> Đổi mật khẩu</a>			                
-					                <a href="${logout}" class="list-group-item"><img src="<c:url value="/Content/public/images/Apps-session-logout-icon.png"/>" width="24" height="24"><span class="pull-right"></span> Đăng xuất</a>
+
                			 			<div class="modal fade" id="change_info">
                    	 					<div class="modal-dialog">
                         					<div class="modal-content">
@@ -37,7 +31,8 @@
                         					</div><!-- /.modal-content -->
                     					</div><!-- /.modal-dialog -->
 			                		</div><!-- /.modal -->
-			            		</div>
+                                </div><!-- /panel-default -->
+
 
                                 
 

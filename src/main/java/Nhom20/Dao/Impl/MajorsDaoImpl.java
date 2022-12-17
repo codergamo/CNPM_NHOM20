@@ -5,16 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Date;
 
-import Nhom20.Connection.*;
+import Nhom20.Connection.DBConnect;
 import Nhom20.Dao.*;
 import Nhom20.Models.*;
+
 public class MajorsDaoImpl extends DBConnect implements IMajorsDao{
 	@Override
 	public void insert(MajorsModel majors) {
 		// TODO Auto-generated method stub
-		String sql = "INSERT INTO majors(majorsName,gender,birth,email,phone) VALUES (?,?,?,?,?)";
+		String sql = "INSERT INTO majors(majorName,gender,birth,email,phone) VALUES (?,?,?,?,?)";
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -35,7 +35,7 @@ public class MajorsDaoImpl extends DBConnect implements IMajorsDao{
 	
 	@Override
 	public void edit(MajorsModel majors) {
-		String sql = "UPDATE  majors SET majorsName=?, gender=?, birth=? email=?, phone=? WHERE majorsId=?";
+		String sql = "UPDATE  majors SET majorName=?, gender=?, birth=? email=?, phone=? WHERE majorsId=?";
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -66,33 +66,34 @@ public class MajorsDaoImpl extends DBConnect implements IMajorsDao{
 
 	@Override
 	public MajorsModel get(int id) {
-		String sql = "SELECT * FROM majors WHERE username = ? ";
+
+		String sql = "SELECT * FROM majors WHERE majorId = ? ";
+		MajorsModel major = null;
+
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				MajorsModel major = new MajorsModel();
-//				majorser.setmajorsId(rs.getInt("majorsId"));
-//				majorser.setmajorsName(rs.getString(id));
-//				majorser.setmajorsId(rs.getInt("majorsId"));
-//				majorser.setBoolean(3, signup.getBoolean());
-//				majorser.setCreatedAt(rs.getDate("createdAt"));
-//				majorser.setPrice(rs.getBigDecimal("price"));
-		
+
+				int majorId = rs.getInt("majorId");
+			    String majorName  = rs.getString("majorName");
+				major = new MajorsModel(majorId,majorName);
 				return major;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+
+		return major;
+
 	}
 
 	@Override
 	public List<MajorsModel> getAll() {
 		List<MajorsModel> majors= new ArrayList<MajorsModel>();
-		String sql = "SELECT * FROM majors";
+		String sql = "SELECT * FROM Majors";
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -100,13 +101,8 @@ public class MajorsDaoImpl extends DBConnect implements IMajorsDao{
 			while (rs.next()) {
 				MajorsModel major = new MajorsModel();
 				
-//				majorser.setmajorsId(rs.getInt("majorsId"));
-//				majorser.setmajorsName(rs.getString(id));
-//				majorser.setmajorsId(rs.getInt("majorsId"));
-//				majorser.setBoolean(3, signup.getBoolean());
-//				majorser.setCreatedAt(rs.getDate("createdAt"));
-//				majorser.setPrice(rs.getBigDecimal("price"));
-				
+				major.setMajorId(rs.getInt("majorId"));
+				major.setMajorName(rs.getString("majorName"));
 				majors.add(major);
 			}
 		} catch (Exception e) {

@@ -59,8 +59,9 @@ public class ChangePasswordController extends HttpServlet {
 		String alertmg = null;
 
 		if (acc.getPassword().equals(pass)) {
-			if (newpass.equals(retypenewpass)) {
-				iacc.edit(acc, newpass);
+			if (newpass.equals(retypenewpass)) {		
+				iacc.editPassword(acc,newpass);
+				acc.setPassword(newpass);
 				alertmg = "Đổi mật khẩu thành công";
 				request.setAttribute("alerts", alertmg);
 			} else {

@@ -1,18 +1,19 @@
 package Nhom20.Controller.teacher;
 
+
 import java.io.IOException;
 import java.sql.Date;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Nhom20.Dao.IMajorsDao;
-import Nhom20.Dao.ITeachersDao;
-import Nhom20.Dao.Impl.MajorsDaoImpl;
-import Nhom20.Dao.Impl.TeachersDaoImpl;
-import Nhom20.Models.TeachersModel;
+import Nhom20.Dao.*;
+import Nhom20.Dao.Impl.*;
+import Nhom20.Models.*;
 
 /**
  * Servlet implementation class UpdateProfileController
@@ -33,6 +34,9 @@ public class UpdateProfileController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ISignUpDao signUp = new SignUpDaoImpl();
+		List<SignUpModel> signs = signUp.getAll();
+		request.setAttribute("signs",signs);
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
@@ -44,7 +48,7 @@ public class UpdateProfileController extends HttpServlet {
 
 		request.setAttribute("teacher",teachersModel);
 		request.setAttribute("majorsDao",majorsDao);
-		request.getRequestDispatcher("/views/teacher/update-profile.jsp").forward(request,response);
+		request.getRequestDispatcher("/view/teacher/update-profile.jsp").forward(request,response);
 	}
 
 	/**

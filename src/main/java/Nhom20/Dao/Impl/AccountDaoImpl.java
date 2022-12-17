@@ -5,9 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Date;
 
-import Nhom20.Connection.*;
+import Nhom20.Connection.DBConnect;
 import Nhom20.Dao.*;
 import Nhom20.Models.*;
 
@@ -33,15 +32,15 @@ public class AccountDaoImpl extends DBConnect implements IAccountDao{
 	
 	
 	@Override
-	public void edit(AccountModel account, String nwpassword) {
-		String sql = "UPDATE  Account SET username=?, password=? WHERE username=? and password=?";
+	public void edit(AccountModel account) {
+		String sql = "UPDATE  Account SET username=?, password=?, role=? WHERE username=?";
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, account.getUsername());
-			ps.setString(2, nwpassword);
-			ps.setString(3, account.getUsername());
-			ps.setString(4, account.getPassword());
+			ps.setString(2, account.getPassword());
+			ps.setInt(3, account.getRole());
+			
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -49,12 +48,12 @@ public class AccountDaoImpl extends DBConnect implements IAccountDao{
 	}
 
 	@Override
-	public void delete(String username) {
+	public void delete(int id) {
 		String sql = "DELETE FROM Account WHERE username = ?";
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
-			//ps.setInt(1, id);
+			ps.setInt(1, id);
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -104,11 +103,12 @@ public class AccountDaoImpl extends DBConnect implements IAccountDao{
 	}
 
 	@Override
-	public AccountModel findById(String username) {
-		String sql = "SELECT * FROM account WHERE id = '" + username +"' ";
+	public AccountModel findById(int id) {
+		String sql = "SELECT * FROM account WHERE id = ? ";
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				AccountModel accounter = new AccountModel();
@@ -122,5 +122,35 @@ public class AccountDaoImpl extends DBConnect implements IAccountDao{
 		}
 		return null;
 	}
+	@Override
+	public void changePassByAdmin(AccountModel account) {
+		String sql = "UPDATE  Account SET password=? WHERE username=?";
+		try {
+			Connection con = super.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, account.getPassword());
+			ps.setString(2, account.getUsername());
+			
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
+	@Override
+	public void editPassword(AccountModel account, String nwpassword) {
+		String sql = "UPDATE  Account SET username=?, password=? WHERE username=? and password=?";
+		try {
+			Connection con = super.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, account.getUsername());
+			ps.setString(2, nwpassword);
+			ps.setString(3, account.getUsername());
+			ps.setString(4, account.getPassword());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }

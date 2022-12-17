@@ -17,9 +17,11 @@ public interface ICouncilDao {
 	List<CouncilModel> getAll();
 
 	CouncilModel findById(int id);
-	
-	CouncilModel getById(int id);
 
 	String checkTopicId(int topicId);
+
+	CouncilModel getById(int id);
+
+	CouncilModel getByTopicId(int topicId);
 
 }

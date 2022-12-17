@@ -5,32 +5,32 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Date;
 
-import Nhom20.Connection.*;
+import Nhom20.Dao.Impl.*;
+import Nhom20.Connection.DBConnect;
 import Nhom20.Dao.*;
 import Nhom20.Models.*;
-public class CouncilDetailsDaoImpl extends DBConnect implements ICouncilDetailsDao{
+
+public class CouncilDetailsDaoImpl extends DBConnect implements ICouncilDetailsDao {
 	@Override
 	public void insert(CouncilDetailsModel councildetail) {
+		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
 		String sql = "INSERT INTO CouncilDetails(CouncilId, teacherId) VALUES (?,?)";
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
-			
+
 			ps.setInt(1, councildetail.getCouncilId());
 			ps.setInt(2, councildetail.getTeacherId());
-			
-			
+
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}
-	
-	
+
 	@Override
 	public void edit(CouncilDetailsModel councildetail) {
 		String sql = "UPDATE  councildetail SET councildetailName=?, gender=?, birth=? email=?, phone=? WHERE councildetailId=?";
@@ -41,25 +41,26 @@ public class CouncilDetailsDaoImpl extends DBConnect implements ICouncilDetailsD
 //			ps.setBoolean(2, councildetail.getGender());
 //			ps.setDate(3, councildetail.getBirth());
 //			ps.setInt(6, councildetail.getcouncildetailId());
-			
+
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+	// Xóa teacher khỏi hội đồng chấm thi
 	@Override
-	public void delete(int id) {
-		String sql = "DELETE FROM councildetail WHERE councildetailId = ?";
+	public void delete(int councilId, int teacherId) {
+		String sql = "DELETE FROM CouncilDetails\r\n" + "WHERE CouncilId = ? and teacherId = ? ";
 		try {
 			Connection con = super.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, id);
+			ps.setInt(1, councilId);
+			ps.setInt(2, teacherId);
 			ps.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 	@Override
@@ -77,7 +78,7 @@ public class CouncilDetailsDaoImpl extends DBConnect implements ICouncilDetailsD
 //				councildetailer.setcouncildetailId(rs.getInt("councildetailId"));
 //				councildetailer.setCreatedAt(rs.getDate("createdAt"));
 //				councildetailer.setPrice(rs.getBigDecimal("price"));
-		
+
 				return councildetailer;
 			}
 		} catch (Exception e) {
@@ -88,7 +89,7 @@ public class CouncilDetailsDaoImpl extends DBConnect implements ICouncilDetailsD
 
 	@Override
 	public List<CouncilDetailsModel> getAll() {
-		List<CouncilDetailsModel> councildetailers= new ArrayList<CouncilDetailsModel>();
+		List<CouncilDetailsModel> councildetailers = new ArrayList<CouncilDetailsModel>();
 		String sql = "SELECT * FROM councildetail";
 		try {
 			Connection con = super.getConnection();
@@ -96,13 +97,13 @@ public class CouncilDetailsDaoImpl extends DBConnect implements ICouncilDetailsD
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				CouncilDetailsModel councildetailer = new CouncilDetailsModel();
-				
+
 //				councildetailer.setcouncildetailId(rs.getInt("councildetailId"));
 //				councildetailer.setcouncildetailName(rs.getString(id));
 //				councildetailer.setcouncildetailId(rs.getInt("councildetailId"));
 //				councildetailer.setCreatedAt(rs.getDate("createdAt"));
 //				councildetailer.setPrice(rs.getBigDecimal("price"));
-				
+
 				councildetailers.add(councildetailer);
 			}
 		} catch (Exception e) {
@@ -127,7 +128,7 @@ public class CouncilDetailsDaoImpl extends DBConnect implements ICouncilDetailsD
 //				councildetailer.setcouncildetailId(rs.getInt("councildetailId"));
 //				councildetailer.setCreatedAt(rs.getDate("createdAt"));
 //				councildetailer.setPrice(rs.getBigDecimal("price"));
-				
+
 				return councildetailer;
 			}
 		} catch (Exception e) {
@@ -135,36 +136,27 @@ public class CouncilDetailsDaoImpl extends DBConnect implements ICouncilDetailsD
 		}
 		return null;
 	}
-	
 
-//	@Override
-//	public List<CouncilDetailsModel> getAll() {
-//		List<CouncilDetailsModel> councildetailers= new ArrayList<CouncilDetailsModel>();
-//		String sql = "SELECT * FROM councildetail";
-//		try {
-//			Connection con = super.getConnection();
-//			PreparedStatement ps = con.prepareStatement(sql);
-//			ResultSet rs = ps.executeQuery();
-//			while (rs.next()) {
-//				CouncilDetailsModel councildetailer = new CouncilDetailsModel();
-//				
-////				councildetailer.setcouncildetailId(rs.getInt("councildetailId"));
-////				councildetailer.setcouncildetailName(rs.getString(id));
-////				councildetailer.setcouncildetailId(rs.getInt("councildetailId"));
-////				councildetailer.setCreatedAt(rs.getDate("createdAt"));
-////				councildetailer.setPrice(rs.getBigDecimal("price"));
-//				
-//				councildetailers.add(councildetailer);
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return councildetailers;
-//	}
-	
+	@Override
+	public String findByCouncilId(int topicId) {
+		String sql = "select id from Council where topicId = ? ";
+		try {
+			Connection con = super.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, topicId);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				return rs.getString(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	@Override
 	public List<CouncilDetailsModel> getAllTeacherByCouncilId(int councilId) {
-		List<CouncilDetailsModel> councildetailers= new ArrayList<CouncilDetailsModel>();
+		List<CouncilDetailsModel> councildetailers = new ArrayList<CouncilDetailsModel>();
 		String sql = "select CouncilDetails.CouncilId, CouncilDetails.teacherId, Teachers.teacherName\r\n"
 				+ "from Council, CouncilDetails, Teachers \r\n"
 				+ "where CouncilDetails.CouncilId = Council.id and CouncilDetails.teacherId = Teachers.teacherId\r\n"
@@ -179,14 +171,17 @@ public class CouncilDetailsDaoImpl extends DBConnect implements ICouncilDetailsD
 				councildetailer.setCouncilId(rs.getInt(1));
 				councildetailer.setTeacherId(rs.getInt(2));
 				councildetailer.setTeacherName(rs.getString(3));
+				councildetailers.add(councildetailer);
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		catch (Exception e) {}
 		return councildetailers;
 	}
+
 	@Override
 	public List<CouncilDetailsModel> getAllByTeacher(int teacherId) {
-		List<CouncilDetailsModel> councildetailers= new ArrayList<CouncilDetailsModel>();
+		List<CouncilDetailsModel> councildetailers = new ArrayList<CouncilDetailsModel>();
 		String sql = "SELECT * FROM CouncilDetails where teacherId=?";
 		try {
 			Connection con = super.getConnection();
@@ -195,13 +190,13 @@ public class CouncilDetailsDaoImpl extends DBConnect implements ICouncilDetailsD
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				CouncilDetailsModel councildetailer = new CouncilDetailsModel();
-				
+
 				councildetailer.setCouncilId(rs.getInt("CouncilId"));
 				councildetailer.setTeacherId(rs.getInt("teacherId"));
 				councildetailer.setLeader(rs.getBoolean("leader"));
 				councildetailer.setId(rs.getInt("id"));
 				councildetailer.setScores(rs.getFloat("Scores"));
-				
+
 				councildetailers.add(councildetailer);
 			}
 		} catch (Exception e) {
@@ -209,27 +204,10 @@ public class CouncilDetailsDaoImpl extends DBConnect implements ICouncilDetailsD
 		}
 		return councildetailers;
 	}
-	
-	@Override
-	public String findByCouncilId(int topicId) {
-		String sql = "select id from Council where topicId = ? ";
-		try {
-			Connection con = super.getConnection();
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, topicId);
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
-				return rs.getString(1);
-			}	
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
 
 	@Override
 	public List<CouncilDetailsModel> getAllByCouncilId(int councilId) {
-		List<CouncilDetailsModel> councildetailers= new ArrayList<CouncilDetailsModel>();
+		List<CouncilDetailsModel> councildetailers = new ArrayList<CouncilDetailsModel>();
 		String sql = "SELECT * FROM CouncilDetails where councilId=?";
 		try {
 			Connection con = super.getConnection();
@@ -252,5 +230,122 @@ public class CouncilDetailsDaoImpl extends DBConnect implements ICouncilDetailsD
 		}
 		return councildetailers;
 	}
+	
+	public void updateScoresCounCilDetail(float scores, int councilId, int teacherId,int topicId) {
+		String sql = "UPDATE CouncilDetails SET scores=? WHERE councilId=? and teacherId=?";
+		try {
+			Connection con = super.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setFloat(1, scores);
+			ps.setInt(2, councilId);
+			ps.setInt(3, teacherId);
+			ps.executeUpdate();
+			
+			updateScoresCounCil(councilId,topicId);
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void updateScoresCounCil(int councilId,int topicId) {
+		String sql = "UPDATE Council SET averagescore=? WHERE id=?";
+		try {
+			float averageScore = getAverageScore(councilId);
+			Connection con = super.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setFloat(1,averageScore);
+			ps.setInt(2, councilId);
+			ps.executeUpdate();
+			
+			if(averageScore>=0)
+				updateTopicDetail(topicId,averageScore);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateTopicDetail(int topicId, float scores) {
+		ITopicDetailsDao topicDetailDAO = new TopicDetailsDaoImpl();
+		List<TopicDetailsModel> topicDetailsModels = topicDetailDAO.getAllByTopicId(topicId);
+		System.out.print(topicDetailsModels.size());
+		for (TopicDetailsModel topicDetail: topicDetailsModels
+			 ) {
+			System.out.print(topicDetail.getId());
+			topicDetail.setScores(scores);
+			topicDetailDAO.edit(topicDetail);
+		}
+	}
+
+	public int getCount(int councilId) {
+		String sql = "Select Count(CouncilId) as count from CouncilDetails where CouncilId = ?";
+		int count =0;
+		try {
+			Connection con = super.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, councilId);
+
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				count = rs.getInt("count");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if(count==0)
+			return 1;
+		return count;
+	}
+
+	public float getAverageScore(int CouncilId) {
+		if(checkScore(CouncilId)==1)
+			return -1;
+		else {
+			String sql = "Select Sum(Scores) as sum from CouncilDetails where CouncilId =? and Scores>0";
+			float sum = -1;
+			try {
+				Connection con = super.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);
+				ps.setInt(1,CouncilId);
+				
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()) {
+					sum = rs.getInt("sum");
+				}
+				
+				return sum/getCount(CouncilId);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return sum;
+		}
+	}
+
+	public int checkScore(int councilId) {
+		String sql = "Select Count(CouncilId) as count from CouncilDetails where CouncilId =? and Scores<0";
+		try {
+			Connection con = super.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, councilId);
+
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				int count = rs.getInt("count");
+				if (count == 0)
+					return -1;
+				return 1;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+
+	
 	
 }
