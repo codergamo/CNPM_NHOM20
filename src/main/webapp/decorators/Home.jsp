@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:url value="./home" var="home"></c:url>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +21,7 @@
 				<%@include file="/common/menu_Home.jsp"%>
 				<div class="col-md-9">
 					<ol class="breadcrumb">
-						<li><a href="./home">Home</a></li>
+						<li><a href="${home}">Home</a></li>
 
 					</ol>
 					<dec:body />

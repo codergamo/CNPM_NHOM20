@@ -32,10 +32,10 @@
 
 				</div>
 				<c:if test="${alerts != null }">
-					<h3 class="alerts alert-danger1 ">${alerts}</h3>
+					<h3 class="alerts alert-danger1 " style ="text-align: center;">${alerts}</h3>
 				</c:if>
 				<hr class="mb-4">
-				<input type="submit" class="btn btn-success btn-lg btn-block"
+				<input type="submit" style ="background-color: #007eff;" class="btn btn-success btn-lg btn-block"
 					value="Cập nhật thông tin">
 			</form>
 		</div>

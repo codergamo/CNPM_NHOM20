@@ -14,7 +14,7 @@ import Nhom20.Dao.Impl.*;
 import Nhom20.Models.*;
 
 @SuppressWarnings("serial")
-@WebServlet(urlPatterns = "/search")
+@WebServlet(urlPatterns = {"/search","/student/search","/admin/search","/teacher/search"})
 public class SearchController extends HttpServlet{
 	
 	ISignUpDao signUp = new SignUpDaoImpl();

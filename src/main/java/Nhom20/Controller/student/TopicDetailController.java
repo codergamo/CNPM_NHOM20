@@ -72,33 +72,6 @@ public class TopicDetailController extends HttpServlet {
 					req.setAttribute("leader", leader);
 
 				}
-//			List<StudentsModel> students = new ArrayList<StudentsModel>();
-//
-//			for (TopicDetailsModel topicDetail : topicdetails) {
-//				// lấy leader thành viên
-//				StudentsModel sd = new StudentsModel();
-//				sd = studentsDao.findById(topicDetail.getStudentId());
-//				students.add(sd);
-//			}
-//
-//			int sl = students.size();
-//			req.setAttribute("sl", sl);
-//
-//			req.setAttribute("students", students);
-//
-//			String majorName = topicDetailsDao.findMajorNameByTopicDetail(Integer.parseInt(topicId));
-//			req.setAttribute("majorName", majorName);
-//
-//			// lấy leader thành viên
-//			StudentsModel leader = new StudentsModel();
-//			for (TopicDetailsModel tp : topicdetails) {
-//				if (tp.getLeader()) {
-//					leader = studentsDao.findById(tp.getStudentId());
-//					req.setAttribute("leader", leader);
-//				}
-//			}
-
-				// lấy thành viên
 
 				// lấy giảng viên hd
 				TeachersModel teacherIn = new TeachersModel();
